@@ -3,7 +3,7 @@
 
 ## 环境要求
 1. Windows 操作系统
-    + _至少_需要 Windows XP
+    + _至少_ 需要 Windows XP
     + x86 _或者_ x64 操作系统
 2. 4GB 的 RAM
 
