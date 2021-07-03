@@ -1,5 +1,5 @@
 # EasiNotePacker
-一个简单的EasiNote5用户数据打包器
+一个简单的EasiNote5课件获取器，或者说是用户数据打包器
 
 ## 环境要求
 1. Windows 操作系统
