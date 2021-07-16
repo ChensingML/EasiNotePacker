@@ -3,7 +3,7 @@
 
 ## 环境要求
 1. Windows 操作系统
-    + _至少_ 需要 Windows XP
+    + _至少_ 需要 Windows 7
     + x86 _或者_ x64 操作系统
 2. 4GB 的 RAM
 
@@ -21,5 +21,3 @@
 
 ## 致谢
 7-Zip - 7z.exe Copyright (C) 2021 Igor Pavlov.
-
-## 厉害了，我的国！

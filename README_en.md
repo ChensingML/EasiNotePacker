@@ -3,7 +3,7 @@ A simple EasiNote5 user data packer
 
 ## Environment
 1. Windows System
-    + At _LEAST_ Windows XP
+    + At _LEAST_ Windows 7
     + x86 _OR_ x64
 2. 4GB of RAM
 
