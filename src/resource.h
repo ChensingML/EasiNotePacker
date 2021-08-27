@@ -11,6 +11,7 @@
 #define IDR_EXE1                        139
 #define IDD_SUCC                        140
 #define IDI_ICON1                       145
+#define IDR_EXE2                        147
 #define IDC_SPB                         1000
 #define IDC_LIST                        1004
 #define IDC_GET                         1005
@@ -31,7 +32,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        146
+#define _APS_NEXT_RESOURCE_VALUE        148
 #define _APS_NEXT_COMMAND_VALUE         32773
 #define _APS_NEXT_CONTROL_VALUE         1017
 #define _APS_NEXT_SYMED_VALUE           104

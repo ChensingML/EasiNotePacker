@@ -3,4 +3,7 @@
   <PropertyGroup>
     <RESOURCE_FILE>EasiNotePacker.rc</RESOURCE_FILE>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <DebuggerFlavor>WindowsRemoteDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

@@ -131,7 +131,7 @@ UINT workThread(LPVOID para) {
 	CString path = ld->path;
 	ST("搜索中");
 
-	if (!hasFile(path+_T("\\App.config")))
+	if (!hasFile(path+_T("\\UserHead")))
 	{
 		ld->MessageBox(_T("目录错误，请检查目录或手动定位至\"AppData\\Roaming\\Seewo\\EasiNote5\\Data\""));
 		isThreadAlive = false;
@@ -249,6 +249,39 @@ UINT workThread(LPVOID para) {
 	//TODO Code here
 	isThreadAlive = false;
 	return 0;
+}
+
+void executeAndWait(CString path,CString para) {
+	SHELLEXECUTEINFO ShExecInfo = { 0 };
+	ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+	ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
+	ShExecInfo.hwnd = NULL;
+	ShExecInfo.lpVerb = NULL;
+	ShExecInfo.lpFile = path;
+	ShExecInfo.lpParameters = para;
+	ShExecInfo.lpDirectory = NULL;
+	ShExecInfo.nShow = SW_HIDE;
+	ShExecInfo.hInstApp = NULL;
+	ShellExecuteEx(&ShExecInfo);
+	WaitForSingleObject(ShExecInfo.hProcess, INFINITE);
+}
+
+void exEXERes(int resID,CString path) {
+	HRSRC hRes = FindResource(theApp.m_hInstance, MAKEINTRESOURCE(resID/*IDR_EXE1*/), _T("EXE"));
+	//获取资源长度  
+	DWORD len = SizeofResource(theApp.m_hInstance, hRes);
+	HGLOBAL hg = LoadResource(theApp.m_hInstance, hRes);
+	LPVOID lp = (LPSTR)LockResource(hg);
+	CFile file;
+	file.Open(path/**/, CFile::modeCreate | CFile::modeWrite);
+	char* cp = (char*)lp;
+	for (int i = 0; i < len; i++)
+	{
+		file.Write(cp++, 1);
+	}
+	CString filePath = file.GetFilePath();
+	file.Close();
+	FreeResource(hg);
 }
 
 BOOL DeleteDirectory(CString directory_path){
@@ -404,49 +437,18 @@ UINT saveWork(LPVOID para) {
 		hint1.Format(_T("正在压制 %d/%d"), i + 1, lss);
 		STS(hint1);
 
-		HRSRC hRes = FindResource(theApp.m_hInstance, MAKEINTRESOURCE(IDR_EXE1), _T("EXE"));
-		//获取资源长度  
-		DWORD len = SizeofResource(theApp.m_hInstance, hRes);
-		HGLOBAL hg = LoadResource(theApp.m_hInstance, hRes);
-		LPVOID lp = (LPSTR)LockResource(hg);
-		CFile file;
-		file.Open(workPath + _T("7z.exe"), CFile::modeCreate | CFile::modeWrite);
-		char* cp = (char*)lp;
-		for (int i = 0; i < len; i++)
-		{
-			file.Write(cp++, 1);
-		}
-		CString filePath = file.GetFilePath();
-		file.Close();
-		SHELLEXECUTEINFO ShExecInfo = { 0 };
-		ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
-		ShExecInfo.fMask = SEE_MASK_NOCLOSEPROCESS;
-		ShExecInfo.hwnd = NULL;
-		ShExecInfo.lpVerb = NULL;
-		CString wp1 = workPath + _T("7z.exe");
-		ShExecInfo.lpFile = wp1;
-		CString para1 = CString(_T("a -mx0 -r ") + workPath + _T("\\o.zip ") + workPath + _T("\\* "));
-		ShExecInfo.lpParameters = para1;
-		ShExecInfo.lpDirectory = NULL;
-		ShExecInfo.nShow = SW_HIDE;
-		ShExecInfo.hInstApp = NULL;
-		ShellExecuteEx(&ShExecInfo);
-		WaitForSingleObject(ShExecInfo.hProcess, INFINITE);
+		exEXERes(IDR_EXE1, workPath + _T("7z.exe"));
+		exEXERes(IDR_EXE2, workPath + _T("7z.dll"));
 
-		SHELLEXECUTEINFO ShExecInfo1 = { 0 };
-		ShExecInfo1.cbSize = sizeof(SHELLEXECUTEINFO);
-		ShExecInfo1.fMask = SEE_MASK_NOCLOSEPROCESS;
-		ShExecInfo1.hwnd = NULL;
-		ShExecInfo1.lpVerb = NULL;
-		ShExecInfo1.lpFile = wp1;
+		//TODO: To method
+		CString wp1 = workPath + _T("7z.exe");
+		CString para1 = CString(_T("a -mx0 -r ") + workPath + _T("\\o.zip ") + workPath + _T("\\* "));
+		CString para3 = CString(_T("d ") + workPath + _T("\\o.zip 7z.dll"));
 		CString para2 = CString(_T("d ") + workPath + _T("\\o.zip 7z.exe"));
-		ShExecInfo1.lpParameters = para2;
-		ShExecInfo1.lpDirectory = NULL;
-		ShExecInfo1.nShow = SW_HIDE;
-		ShExecInfo1.hInstApp = NULL;
-		ShellExecuteEx(&ShExecInfo1);
-		WaitForSingleObject(ShExecInfo1.hProcess, INFINITE);
-		FreeResource(hg);
+		executeAndWait(wp1, para1);
+		executeAndWait(wp1, para2);
+		executeAndWait(wp1, para3);
+
 
 		CString hint2;
 		hint2.Format(_T("正在保存 %d/%d"), i + 1, lss);

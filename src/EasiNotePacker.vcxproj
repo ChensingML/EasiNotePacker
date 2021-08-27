@@ -212,9 +212,12 @@
     <ResourceCompile Include="EasiNotePacker.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\Program Files (x86)\7-Zip\7z.dll" />
     <None Include="..\..\..\AppData\Roaming\Seewo\EasiNote5\Data\13850139666\Courseware\d5a3c3ca-f805-48e8-9a54-2d020e0908ae\Work\7z.exe" />
+    <None Include="7z.dll" />
     <None Include="7z.exe" />
     <None Include="D:\Documents\MYCODE\RAR\Rar.exe" />
+    <None Include="exe2.bin" />
     <None Include="res\EasiNotePacker.rc2" />
     <None Include="res\exe1.bin" />
   </ItemGroup>

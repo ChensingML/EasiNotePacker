@@ -20,4 +20,4 @@
 有关详细信息，请阅读代码!
 
 ## 致谢
-7-Zip - 7z.exe Copyright (C) 2021 Igor Pavlov.
+7-Zip - 7z.exe,7z.dll Copyright (C) 2021 Igor Pavlov.

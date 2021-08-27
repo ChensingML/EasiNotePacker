@@ -20,4 +20,4 @@ EasiNote5 will leave cache in __C:\Users\\(User)\AppData\Roaming\Seewo\EasiNote5
  server of EasiNote. The program will collect these cache and re-packing them to .enbx files. All the details are in the code!
 
 ## Thanks
-7-Zip - 7z.exe Copyright (C) 2021 Igor Pavlov.
+7-Zip - 7z.exe,7z.dll Copyright (C) 2021 Igor Pavlov.
