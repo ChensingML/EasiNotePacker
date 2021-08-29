@@ -1,3 +1,5 @@
+__简体中文__ | [English](https://github.com/ChensingML/EasiNotePacker/blob/main/README_en.md)
+
 # EasiNotePacker
 一个简单的EasiNote5课件获取器，或者说是用户数据打包器
 
