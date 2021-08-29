@@ -9,7 +9,7 @@ A simple EasiNote5 user data packer
     + x86 _OR_ x64
 2. 4GB of RAM
 
-## Download
+## Downloads
 See downloads in [Releases](https://github.com/ChensingML/EasiNotePacker/releases)
 
 ## Usage
