@@ -1,4 +1,4 @@
-[简体中文](https://github.com/ChensingML/EasiNotePacker/blob/main/README.md) | __Engilsh__
+[简体中文](https://github.com/ChensingML/EasiNotePacker/blob/main/README.md) | __English__
 
 # EasiNotePacker
 A simple EasiNote5 user data packer
