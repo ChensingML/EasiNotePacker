@@ -7,6 +7,9 @@
     + x86 _或者_ x64 操作系统
 2. 4GB 的 RAM
 
+## 下载
+详情请见[Releases](https://github.com/ChensingML/EasiNotePacker/releases)
+
 ## 用法
 1. 打开它!
 2. 点击"搜索"!
