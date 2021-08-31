@@ -131,7 +131,7 @@ UINT workThread(LPVOID para) {
 	CString path = ld->path;
 	ST("搜索中");
 
-	if (!hasFile(path+_T("\\UserHead")))
+	if (!hasFile(path))
 	{
 		ld->MessageBox(_T("目录错误，请检查目录或手动定位至\"AppData\\Roaming\\Seewo\\EasiNote5\\Data\""));
 		isThreadAlive = false;
